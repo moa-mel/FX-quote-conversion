@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package fx;
+
+service FXQuoteService {
+  rpc GetQuote (QuoteRequest) returns (QuoteResponse);
+}
+// base currency, which appears first and the quote or variable currency, which appears last
+//like EUR/USD
+message QuoteRequest {
+  string base_currency = 1;
+  string quote_currency = 2;
+}
+
+message QuoteResponse {
+  string currency_pair = 1;
+  double exchange_rate = 2;
+  string timestamp = 3;
+}
