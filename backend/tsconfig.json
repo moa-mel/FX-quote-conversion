@@ -25,7 +25,8 @@
         "libs/common/src/*"
       ],
       "@app/proto": [
-        "libs/common/types/fx_quote.ts"
+        "libs/common/types/fx_quote.ts",
+        "libs/common/types/fx_conversion.ts"
       ]
     }
   }

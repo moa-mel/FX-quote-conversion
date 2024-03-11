@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package currency;
+
+service CurrencyService {
+  rpc ConvertCurrency (ConvertRequest) returns (ConvertResponse);
+}
+
+message ConvertRequest {
+  string sourceCurrency = 1;
+  string destinationCurrency = 2;
+  double amount = 3;
+}
+
+message ConvertResponse {
+  double convertedAmount = 1;
+}

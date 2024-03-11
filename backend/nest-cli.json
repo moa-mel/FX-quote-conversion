@@ -48,10 +48,14 @@
     "fx-conversion": {
       "type": "application",
       "root": "apps/fx-conversion",
-      "entryFile": "main",
-      "sourceRoot": "apps/fx-conversion/src",
+      "entryFile": "src/main",
+      "sourceRoot": "./",
       "compilerOptions": {
-        "tsConfigPath": "apps/fx-conversion/tsconfig.app.json"
+        "tsConfigPath": "apps/fx-conversion/tsconfig.app.json",
+        "assets": [
+          "proto/*.proto"
+        ],
+        "watchAssets": true
       }
     }
   }

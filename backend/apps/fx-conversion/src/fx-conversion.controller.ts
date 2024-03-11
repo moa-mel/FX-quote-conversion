@@ -1,12 +1,19 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller } from '@nestjs/common';
 import { FxConversionService } from './fx-conversion.service';
+import { ConvertRequest, ConvertResponse } from '@app/common/types/fx_conversion';
+import { GrpcMethod } from '@nestjs/microservices';
+import { CurrencyServiceController } from '@app/common/types/fx_conversion';
 
 @Controller()
-export class FxConversionController {
+export class FxConversionController implements CurrencyServiceController {
   constructor(private readonly fxConversionService: FxConversionService) {}
 
-  @Get()
-  getHello(): string {
-    return this.fxConversionService.getHello();
+  /*@Post('convert')
+  async convertCurrency(@Body() request: any): Promise<any> {
+    return this.fxConversionService.convertCurrency(request);
+  } */
+  @GrpcMethod('CurrencyService', 'ConvertCurrency')
+  convertCurrency(convertRequest: ConvertRequest): Promise<ConvertResponse>{
+    return this.fxConversionService.convertCurrency(convertRequest)
   }
 }

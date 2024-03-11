@@ -7,8 +7,8 @@ import { join } from 'path'
 async function bootstrap() {
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
     FxQuoteModule,
-    {
-     
+    {  
+    
       transport: Transport.GRPC,
         options: {
           url: 'localhost:50051', 

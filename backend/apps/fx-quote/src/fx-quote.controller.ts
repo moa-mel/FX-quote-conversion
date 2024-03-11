@@ -8,11 +8,6 @@ import { GrpcMethod } from '@nestjs/microservices';
 export class FxQuoteController implements FXQuoteServiceController {
   constructor(private readonly fxQuoteService: FxQuoteService) {}
 
-  /*@Post('quote')
-  async getQuote(@Body() request: QuoteRequest): Promise<QuoteResponse> {
-    return this.fxQuoteService.getQuote(request);
-  } */
-
   @GrpcMethod('FXQuoteService', 'GetQuote')
   getQuote(quoteRequest: QuoteRequest): QuoteResponse{
     return this.fxQuoteService.getQuote(quoteRequest)
